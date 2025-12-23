@@ -1,7 +1,5 @@
 // generators/floors.ts
 import { Floor, FloorConfig } from "../domain/floor";
-import { FloorCode } from "../domain/plan-number-parts";
-
 /**
  * Generiert alle Geschosse basierend auf FloorConfig und optionaler Zählung.
  * Unterstützt UG, EG, OGs, DG.
@@ -35,7 +33,7 @@ export function generateFloors(
   // Obergeschosse (OG)
   // -------------------
   const ogCount = counts?.og?.count ?? 0;
-  const ogPrefix = cfg?.og?.prefix ?? counts?.og?.prefix ?? "OG";
+  const ogPrefix = counts?.og?.prefix ?? counts?.og?.prefix ?? "OG";
   for (let i = 1; i <= ogCount; i++) {
     floors.push(`${ogPrefix}${i}` as Floor<`${number}`>);
   }

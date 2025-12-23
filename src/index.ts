@@ -23,6 +23,7 @@
  * ```
  */
 export { buildPlanNumbers } from "./api/build-plan-numbers";
+export { STANDARD_TGA } from "./standards/default-tga";
 // zentrale Domänen-Typen
 export type { Trade } from "./domain/trade";
 export type { PlanType } from "./domain/plan-type";

@@ -1,6 +1,7 @@
+import { Separator } from "../domain/plan-number-parts";
 import { PlanRule } from "../rules/plan-rule";
 
 export interface OfficeStandard {
-  separator: string;
+  separator: Separator;
   planRules: PlanRule[];
 }

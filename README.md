@@ -22,13 +22,13 @@ Plannr ist ein TypeScript-Paket zur **automatischen Generierung von Plannummern*
 ## Installation
 
 ```bash
-npm install plannr-core
+npm i @chahidy/plannr
 ```
 
 oder mit Yarn:
 
 ```bash
-yarn add plannr-core
+yarn add @chahidy/plannr
 ```
 
 ---
@@ -38,29 +38,35 @@ yarn add plannr-core
 ### Import
 
 ```ts
-import { buildPlanNumbers } from "plannr-core";
-import { STANDARD_TGA } from "plannr-core/standards";
-import type { FloorConfig } from "plannr-core/domain/floor";
+import {
+  type FloorConfig,
+  buildPlanNumbers,
+  STANDARD_TGA,
+} from "@chahidy/plannr";
 ```
 
 ### Beispiel: Pläne generieren
 
 ```ts
 const floorsConfig: FloorConfig = {
-  ug: { count: 1, prefix: "UG" },
-  og: { count: 3, prefix: "OG" },
-  eg: { prefix: "EG" },
-  dg: { prefix: "DG" },
+  ug: { count: 1, prefix: "UG" }, // Anzahl und Prefix Geschoss
+  og: { count: 3, prefix: "OG" }, // Anzahl und Prefix Geschoss
+  eg: { prefix: "EG" }, // Prefix Geschoss / Standard 1 Geschoss
+  dg: { prefix: "DG" }, // Prefix Geschoss / Standard 1 Geschoss
 };
 
 const planNumbers = buildPlanNumbers({
   projectNumber: "21015",
-  counts: floorsConfig,
+  floorcfg: floorsConfig,
   blocks: [
-    { trades: ["LUE"], planTypes: ["GR"], perFloor: true },
-    { trades: ["HEI"], planTypes: ["SC"], minimumPerTrade: 2 },
+    { trades: ["LUE"], planTypes: ["GR"], perFloor: true }, // Nur Lüftung und nur Grundrisse
+    {
+      trades: ["HZ"], // Heizung
+      planTypes: ["GR", "SC"], // Grundrisse und Schemata
+      minimumPerTrade: 2, // Anzahl Schemata
+      perFloor: true, // Für Grundrisse muss dieser Parameter gesetzt sein
+    },
   ],
-  standard: STANDARD_TGA,
 });
 
 console.log(planNumbers);

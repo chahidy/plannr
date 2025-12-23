@@ -1,5 +1,11 @@
 import { PlanBlockConfig } from "./block-config";
 import { FloorConfig } from "./floor";
+import {
+  PlanIndex,
+  PlanStatus,
+  ProjectNumber,
+  Separator,
+} from "./plan-number-parts";
 
 /**
  * Erzeugt Plannummern auf Basis von Blöcken, Geschossen und Projektparametern.
@@ -18,23 +24,15 @@ import { FloorConfig } from "./floor";
  */
 export interface BuildPlanNumbersInput {
   /**
-   * Vereinfachte Angabe:
-   * Gesamtanzahl Geschosse (inkl. EG).
-   *
-   * ⚠️ Wird ignoriert, wenn `floorCounts` gesetzt ist.
-   */
-  floors?: number;
-
-  /**
    * Erweiterte Geschossdefinition.
    *
    * Überschreibt die automatische Geschossermittlung.
    */
-  floorCounts?: FloorConfig;
   floorcfg?: FloorConfig;
   blocks: PlanBlockConfig[];
-  projectNumber: string;
-  separator?: string;
-  suffix?: string;
-  index?: string;
+  projectNumber: ProjectNumber;
+  separator?: Separator;
+  suffix?: PlanStatus;
+  index?: PlanIndex;
+  standards?: Partial<PlanBlockConfig>;
 }

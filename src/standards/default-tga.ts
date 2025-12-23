@@ -1,9 +1,9 @@
 import { OfficeStandard } from "./office-standard";
 
 export const STANDARD_TGA: OfficeStandard = {
-  separator: "-",
+  separator: "_",
   planRules: [
-    { type: "GR", perFloor: true },
-    { type: "SC", perFloor: false, minimumPerTrade: 1 }
-  ]
+    { type: "GR", perFloor: true, minimumPerTrade: 5 },
+    { type: "SC", perFloor: false, minimumPerTrade: 5 },
+  ],
 };

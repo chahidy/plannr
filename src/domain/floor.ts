@@ -29,16 +29,16 @@ export interface FloorConfig {
    * Untergeschoss-Bezeichnung (z. B. "UG" oder "-01").
    */
   ug?: {
-    prefix?: Floor;
-    count: number;
+    prefix?: string;
+    count?: number;
   };
 
   /**
    * Erdgeschoss-Bezeichnung (z. B. "EG").
    */
   eg?: {
-    prefix?: Floor;
-    count: number;
+    prefix?: string;
+    count?: number;
   };
 
   /**
@@ -49,15 +49,15 @@ export interface FloorConfig {
    * - Ergebnis: OG1, OG2, OG3, ...
    */
   og?: {
-    prefix?: Floor;
-    count: number;
+    prefix?: string;
+    count?: number;
   };
 
   /**
    * Dachgeschoss-Bezeichnung (z. B. "DG").
    */
   dg?: {
-    prefix?: Floor;
-    count: number;
+    prefix?: string;
+    count?: number;
   };
 }

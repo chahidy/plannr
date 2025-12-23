@@ -30,7 +30,7 @@ export type Plannummer<
  * Standard-Plannummer, wie sie von der API zurückgegeben wird.
  */
 export type DefaultPlannummer = Plannummer<
-  "-",
+  Separator,
   ProjectNumber,
   Trade,
   PlanType,
