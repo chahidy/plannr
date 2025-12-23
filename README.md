@@ -1,7 +1,7 @@
 # Plannr – Plannummer Generator für Baupläne
 
-[![npm version](https://img.shields.io/npm/v/plannr-core)](https://www.npmjs.com/package/plannr-core)  
-[![License](https://img.shields.io/npm/l/plannr-core)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/@chahidy/plannr)](https://www.npmjs.com/package/@chahidy/plannr)  
+[![License](https://img.shields.io/npm/l/@chahidy/plannr)](LICENSE)
 
 Plannr ist ein TypeScript-Paket zur **automatischen Generierung von Plannummern** für Bauprojekte. Es unterstützt verschiedene **Bürostandards**, **mehrere Geschosse**, **Gewerke** und **Planarten**. Ideal für Web-Apps oder interne Tools.
 
@@ -9,12 +9,12 @@ Plannr ist ein TypeScript-Paket zur **automatischen Generierung von Plannummern*
 
 ## Features
 
-- Frei konfigurierbare Plannummern  
-- Unterstützung von Untergeschossen (UG), Obergeschossen (OG), Erdgeschoss (EG) und Dachgeschoss (DG)  
-- Mehrere Gewerke gleichzeitig auswählbar (Lüftung, Heizung, Sanitär …)  
-- Dynamische Template Literal Typen für Plannummern  
-- Unterstützung von Grundrissen und Strangschemata  
-- Vollständig typisiert in TypeScript  
+- Frei konfigurierbare Plannummern
+- Unterstützung von Untergeschossen (UG), Obergeschossen (OG), Erdgeschoss (EG) und Dachgeschoss (DG)
+- Mehrere Gewerke gleichzeitig auswählbar (Lüftung, Heizung, Sanitär …)
+- Dynamische Template Literal Typen für Plannummern
+- Unterstützung von Grundrissen und Strangschemata
+- Vollständig typisiert in TypeScript
 - Einfache Integration in Webanwendungen
 
 ---
@@ -50,7 +50,7 @@ const floorsConfig: FloorConfig = {
   ug: { count: 1, prefix: "UG" },
   og: { count: 3, prefix: "OG" },
   eg: { prefix: "EG" },
-  dg: { prefix: "DG" }
+  dg: { prefix: "DG" },
 };
 
 const planNumbers = buildPlanNumbers({
@@ -58,9 +58,9 @@ const planNumbers = buildPlanNumbers({
   counts: floorsConfig,
   blocks: [
     { trades: ["LUE"], planTypes: ["GR"], perFloor: true },
-    { trades: ["HEI"], planTypes: ["SC"], minimumPerTrade: 2 }
+    { trades: ["HEI"], planTypes: ["SC"], minimumPerTrade: 2 },
   ],
-  standard: STANDARD_TGA
+  standard: STANDARD_TGA,
 });
 
 console.log(planNumbers);
@@ -81,4 +81,3 @@ console.log(planNumbers);
 Generiert Plannummern basierend auf:
 
 - `projectNumber: string` – Projekt
-
