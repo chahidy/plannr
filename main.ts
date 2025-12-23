@@ -1,8 +1,4 @@
-import {
-  type FloorConfig,
-  buildPlanNumbers,
-  STANDARD_TGA,
-} from "./dist/index.cjs";
+import { type FloorConfig, buildPlanNumbers } from "./dist/index.cjs";
 
 const floorsConfig: FloorConfig = {
   ug: { count: 1, prefix: "UG" }, // Anzahl und Prefix Geschoss
@@ -12,10 +8,13 @@ const floorsConfig: FloorConfig = {
 };
 
 const planNumbers = buildPlanNumbers({
-  projectNumber: "21015",
+  projectNumber: "21015", // Projektnummer
+  separator: "_", // Trennzeichen
+  suffix: "P", // Planstatus
+  index: "Z", // Aktuelle Änderung-Index
   floorcfg: floorsConfig,
   blocks: [
-    { trades: ["LUE"], planTypes: ["GR"], perFloor: true }, // Nur Lüftung und nur Grundrisse
+    { trades: ["LUE"], planTypes: ["GR"], perFloor: true }, // Nur Lüftung-Grundrisse
     {
       trades: ["HZ"], // Heizung
       planTypes: ["GR", "SC"], // Grundrisse und Schemata

@@ -24,8 +24,7 @@ export function buildPlanNumbers(input: BuildPlanNumbersInput): string[] {
     for (const trade of mergedBlock.trades) {
       for (const type of mergedBlock.planTypes) {
         if (type === "GR") {
-          const perFloor =
-            mergedBlock.plansPerFloor ?? (mergedBlock.perFloor ? 1 : 0);
+          const perFloor = mergedBlock.plansPerFloor ?? 1;
 
           for (const floor of floors) {
             for (let i = 0; i < perFloor; i++) {

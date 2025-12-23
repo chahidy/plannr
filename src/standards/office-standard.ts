@@ -1,7 +1,9 @@
-import { Separator } from "../domain/plan-number-parts";
-import { PlanRule } from "../rules/plan-rule";
+import { PlanBlockConfig } from "../domain/block-config";
+import { PlanIndex, PlanStatus, Separator } from "../domain/plan-number-parts";
 
 export interface OfficeStandard {
-  separator: Separator;
-  planRules: PlanRule[];
+  separator?: Separator;
+  suffix?: PlanStatus;
+  index?: PlanIndex;
+  standards?: Partial<PlanBlockConfig>;
 }

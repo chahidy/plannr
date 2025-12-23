@@ -38,11 +38,7 @@ yarn add @chahidy/plannr
 ### Import
 
 ```ts
-import {
-  type FloorConfig,
-  buildPlanNumbers,
-  STANDARD_TGA,
-} from "@chahidy/plannr";
+import { type FloorConfig, buildPlanNumbers } from "@chahidy/plannr";
 ```
 
 ### Beispiel: Pläne generieren
@@ -56,10 +52,13 @@ const floorsConfig: FloorConfig = {
 };
 
 const planNumbers = buildPlanNumbers({
-  projectNumber: "21015",
+  projectNumber: "21015", // Projektnummer
+  separator: "_", // Trennzeichen
+  suffix: "P", // Planstatus
+  index: "Z", // Aktuelle Änderung-Index
   floorcfg: floorsConfig,
   blocks: [
-    { trades: ["LUE"], planTypes: ["GR"], perFloor: true }, // Nur Lüftung und nur Grundrisse
+    { trades: ["LUE"], planTypes: ["GR"], perFloor: true }, // Nur Lüftung-Grundrisse
     {
       trades: ["HZ"], // Heizung
       planTypes: ["GR", "SC"], // Grundrisse und Schemata
